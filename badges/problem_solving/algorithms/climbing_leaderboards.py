@@ -6,7 +6,6 @@ import random
 import re
 import sys
 
-
 #
 # Complete the 'climbingLeaderboard' function below.
 #
@@ -16,30 +15,27 @@ import sys
 #  2. INTEGER_ARRAY player
 #
 
+import bisect
+
+
 def get_score(ranked):
-    return dict(zip(ranked,[i+1 for i in range(len(ranked))]))
+    return dict(zip(ranked , [i + 1 for i in range(len(ranked))]))
+
 
 def climbingLeaderboard(ranked , player):
+    ranked = sorted(list(set(ranked)) , reverse=True)
+    player.sort(reverse=True)
     score = list()
+    idx = 0
 
-    for item in player:
-        ranked = sorted(list(set(ranked)) , reverse=True)
-        tmp = get_score(ranked)
-
-        # print(ranked)
-        if item not in ranked:
-            ranked.append(item)
-            ranked = sorted(list(set(ranked)) , reverse=True)
-            tmp = get_score(ranked)
-        score.append(tmp[item])
-    return score
-
-
-
-
+    for i in range(len(player)):
+        while idx < len(ranked) and player[i] < ranked[idx]:
+            idx += 1
+        score.append(idx + 1)
+    return score[::-1]
 
 
 
 if __name__ == '__main__':
-    result = climbingLeaderboard([100 , 90 , 90 , 80 ] , [70,80,105])
+    result = climbingLeaderboard([100 , 90 , 90 , 80] , [70 , 80 , 105])
     print(result)
