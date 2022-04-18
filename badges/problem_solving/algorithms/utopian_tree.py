@@ -6,6 +6,7 @@ import random
 import re
 import sys
 
+
 #
 # Complete the 'utopianTree' function below.
 #
@@ -15,17 +16,18 @@ import sys
 
 def utopianTree(n):
     # Write your code here
+    if n == 0:
+        return 1
+    else:
+        x = 1
+        for h in range(1 , n+1):
+            if h % 2 != 0:
+                x = x * 2
+            else:
+                x += 1
+        return x
+
 
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    t = int(input().strip())
-
-    for t_itr in range(t):
-        n = int(input().strip())
-
-        result = utopianTree(n)
-
-        fptr.write(str(result) + '\n')
-
-    fptr.close()
+    result = utopianTree(5)
+    print(result)
