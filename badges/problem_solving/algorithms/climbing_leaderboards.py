@@ -18,22 +18,18 @@ import sys
 import bisect
 
 
-def get_score(ranked):
-    return dict(zip(ranked , [i + 1 for i in range(len(ranked))]))
-
-
 def climbingLeaderboard(ranked , player):
     ranked = sorted(list(set(ranked)) , reverse=True)
     player.sort(reverse=True)
+    # print(player)
     score = list()
     idx = 0
-
     for i in range(len(player)):
         while idx < len(ranked) and player[i] < ranked[idx]:
             idx += 1
         score.append(idx + 1)
+        print(player[i] , score)
     return score[::-1]
-
 
 
 if __name__ == '__main__':
