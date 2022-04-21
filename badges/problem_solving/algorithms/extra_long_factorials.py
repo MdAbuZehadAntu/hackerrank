@@ -4,6 +4,7 @@ import random
 import re
 import sys
 
+
 #
 # Complete the 'extraLongFactorials' function below.
 #
@@ -13,6 +14,7 @@ import sys
 def extraLongFactorials(n):
     # Write your code here
     print(math.factorial(n))
+
 
 if __name__ == '__main__':
     extraLongFactorials(30)
