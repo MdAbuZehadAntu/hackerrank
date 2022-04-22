@@ -24,11 +24,10 @@ def taumBday(b , w , bc , wc , z):
         wc = (bc + z)
     elif wc + z < bc:
         bc = (wc + z)
-    cost = b*bc + w*wc
+    cost = b * bc + w * wc
     return cost
 
 
-
 if __name__ == '__main__':
-    result = taumBday(10,10,1,1,1)
+    result = taumBday(10 , 10 , 1 , 1 , 1)
     print(result)
