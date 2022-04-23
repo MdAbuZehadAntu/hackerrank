@@ -18,32 +18,23 @@ def biggerIsGreater(w):
     w = list(w)
     wid = len(w)
     pivot = None
-    for i in range(1,wid):
-        print(w[wid-i],end=' ')
-        if w[wid-i] > w[wid-i-1]:
-            pivot =  w[wid-i-1]
+    for i in range(1 , wid):
+        if w[wid - i] > w[wid - i - 1]:
+            pivot = w[wid - i - 1]
             break
     if pivot is None:
         return 'no answer'
-    sub_wid = len(w[wid-i : ])
-    # print(pivot)
-    # print(w[wid-i-1 : ])
+    sub_wid = len(w[wid - i:])
     j = wid - 1
-    while j >= wid-i:
-        print(w[j])
+    while j >= wid - i:
         if w[j] > pivot:
             break
         j -= 1
-
     replacement_index = j
-    w[wid-i-1],w[replacement_index] = w[replacement_index], w[wid-i-1]
-    w = w[:wid-i] + sorted(w[wid-i:])
+    w[wid - i - 1] , w[replacement_index] = w[replacement_index] , w[wid - i - 1]
+    w = w[:wid - i] + sorted(w[wid - i:])
     w = ''.join(w)
     return w
-
-
-
-
 
 
 if __name__ == '__main__':
