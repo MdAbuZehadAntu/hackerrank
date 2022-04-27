@@ -6,6 +6,7 @@ import random
 import re
 import sys
 
+
 #
 # Complete the 'fairRations' function below.
 #
@@ -21,7 +22,7 @@ def fairRations(B):
         else:
             try:
                 B[i] += 1
-                B[i+1] += 1
+                B[i + 1] += 1
                 count += 2
             except:
                 return 'NO'
@@ -29,5 +30,5 @@ def fairRations(B):
 
 
 if __name__ == '__main__':
-    result = fairRations([2, 3, 4, 5, 6] )
+    result = fairRations([2 , 3 , 4 , 5 , 6])
     print(result)
